@@ -1,0 +1,14 @@
+#Distribution files
+dist/
+
+#Vendor files
+public/vendor
+
+#CSS Generated files
+public/css
+
+#Node modules
+node_modules/
+
+
+
