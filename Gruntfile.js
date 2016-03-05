@@ -4,10 +4,10 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				reporter: 'jshint-stylish'
+				reporter: require('jshint-stylish')
 			},
 
-			build: ['Grunfile.js', 'public/js/**/*.js']
+			build: ['Gruntfile.js', 'public/js/**/*.js']
 		},
 
 		clean: {
@@ -38,9 +38,18 @@ module.exports = function(grunt) {
 			},
 
 			scripts: {
-				files: ['Grunfile.js', 'public/js/**/*.js'],
+				files: ['Gruntfile.js', 'public/js/**/*.js'],
 				tasks: ['jshint:build']
 			}
 		}
 	});
-}
+
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-html-build');
+
+	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('dist', ['clean:dist', 'jshint:build']);
+};
