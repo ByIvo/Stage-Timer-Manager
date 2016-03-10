@@ -3,26 +3,6 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 	var running = false;
 
 	var stages = [
-	{
-		name: 'Estágio 1',
-		stageTime: 2,
-		autoStart: true
-	},
-	{
-		name: 'Estágio 2',
-		stageTime: 2,
-		autoStart: true
-	},
-	{
-		name: 'Estágio 3',
-		stageTime: 3,
-		autoStart: true
-	},
-	{
-		name: 'Estágio 4',
-		stageTime: 4,
-		autoStart: true
-	}
 	];
 
 	var actualStage;
@@ -50,6 +30,12 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 				swal(timerService.okTitle, timerService.okMessage, "success");
 				this.restoreTimer(true);
 			}
+		},
+
+		removeStage: function(stage) {
+			var index = stages.indexOf(stage);
+
+			if(index > -1) stages.splice(index,1);
 		},
 
 		startStage: function(stage) {

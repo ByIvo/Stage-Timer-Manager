@@ -6,7 +6,12 @@ app.config(['$routeProvider', function($routeProvider) {
 		controller: 'StageTimerController'
 	});
 
+	$routeProvider.when('/timerConfiguration', {
+		templateUrl: 'partials/stage-timer-config.html',
+		controller: 'StageConfigurationController'
+	});
+
 	$routeProvider.otherwise({
-		redirectTo: '/timerManager'
+		redirectTo: '/timerConfiguration'
 	});
 }]);

@@ -1,7 +1,56 @@
-<div class="content-fluid">
-	<div class="col-xs-4 col-xs-offset-4">
-		<div class="col-xs-4">
-		<input type="text" class="form-control" id="stage-name" placeholder="Nome do estágio">
-		</div> 
+<div class="content-fluid stage-timer-config">
+
+	<label class="label-start ">Clique abaixo para iniciar...</label>
+	<a href="#/timerManager" class="start-timer glyphicon glyphicon-play"></a>
+
+	<div class="col-xs-6 col-xs-offset-3">
+		<label class="col-xs-12 label-stages text-left">Estágios:</label>
+
+		<table class="my-table table table-bordered">
+			<tr>
+				<th class="col-xs-1">
+					Ordem
+				</th>
+				<th class="col-xs-4">
+					Nome do Estágio
+				</th>
+				<th class="col-xs-4">
+					Tempo (em segundos)
+				</th>
+				<th class="col-xs-2">
+					Auto Start
+				</th>
+				<th class="col-xs-1">
+					Excluir
+				</th>
+			</tr>
+
+			<tr ng-repeat="stage in stages() track by $index">
+				<td>
+					{{$index + 1}}
+				</td>
+				<td>
+					<input type="text" ng-model="stage.name" class="form-control" id="stage-name" placeholder="Ex: Troca de cartões">
+				</td>
+				<td>
+					<input type="number" ng-model="stage.stageTime" class="form-control" id="stage-time" placeholder="Ex: 200">
+				</td>
+				<td>
+					<input type="checkbox" ng-model="stage.autoStart" class="form-control my-checkbox my-checkbox-normal" id="stage-autostart{{$index}}" title="Início automático">
+					<label for="stage-autostart{{$index}}"></label>
+				</td>
+				<td>
+					<span ng-click="removeStage(stage)"  class="remove-stage-button glyphicon glyphicon-remove"></span>
+				</td>
+			</tr>
+
+			<tr ng-if="stages().length == 0">
+				<td class="text-center no-stage-message" colspan="5">
+					Não há nenhum estágio cadastrado
+				</td>
+			</tr>
+		</table>
+
+		<span ng-click="addNewStage()"  class="col-xs-12 text-center config-button glyphicon glyphicon-plus"></span>
 	</div>
 </div>
