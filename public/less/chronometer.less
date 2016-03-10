@@ -1,0 +1,44 @@
+.chronometer {
+	text-align: center;
+	font-family: Montserrat;
+	font-weight: normal;
+	line-height: 15vw;
+	font-size: 17vw;
+	span {
+		display: inline-block;
+
+		&.display-number {
+			width: 23vw;
+			
+			&.in-left {
+				text-align: left;
+			}
+
+			&.in-right {
+				text-align: right;
+			}
+		}
+
+		&.separator {
+			
+		}
+	}
+
+	.action-button {
+		font-size: 7vw;
+		cursor: pointer;
+		color: @blue-belize-role;
+		transition: all ease 0.5s;
+		&:hover {
+			color: @white;
+		}
+	}
+}
+
+.stage-name {
+	font-weight: bold;
+	text-align: center;
+	font-weight: bold;
+	font-size: 3vw;
+	margin: 7vh 4vw;
+}

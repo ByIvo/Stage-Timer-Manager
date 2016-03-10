@@ -1,0 +1,53 @@
+<div class="content-fluid">
+
+	<div class="stage-name">
+		{{stageName()}}
+	</div>
+
+	<div class="chronometer">
+
+	<!-- <by-countdown ng-click="start()" start-at="start" end-at="end" step="step" ammount="ammount">
+			{{asd}}
+		<span ng-click="alert('oi')" class="action-button glyphicon glyphicon-pause"></span>
+	</by-countdown> -->
+
+	<timer autostart="autoStart()" language="pt" interval="1000" countdown="stageTime()" finish-callback="finished()">
+		<div>
+			<span class="display-number in-right">
+				{{mminutes}} 
+			</span class="separator">
+			<span>
+				:
+			</span>
+			<span class="display-number in-left">
+				{{sseconds}}
+			</span>
+		</div>
+
+		<div class="container-fluid">
+			<div class="col-xs-6 text-right">
+				<span ng-click="restoreTimer()" class="action-button glyphicon glyphicon-repeat"></span>
+			</div>
+			<div class="col-xs-6 text-left">
+				<span ng-if="isRunning()" ng-click="stopTimer()" class="action-button glyphicon glyphicon-pause"></span>
+				<span ng-if="!isRunning()" ng-click="startTimer()" class="action-button glyphicon glyphicon-play"></span>
+			</div>
+		</div>
+
+		<div class="stage-progress-bar">
+		<span style="width: {{progressBar}}%;" class="completed"></span>
+		</div>
+	</timer>
+
+</div>
+</div>
+
+<nav class="navbar navbar-fixed-bottom">
+	<div class="container-fluid">
+		<div class="stage-timer completed">
+			<div class="action-buttons">
+				<button>
+				</div>
+			</div>
+		</div>
+	</nav>

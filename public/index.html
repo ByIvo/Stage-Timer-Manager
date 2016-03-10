@@ -1,0 +1,43 @@
+<html ng-app="stage-timer-manager">
+<head>
+	<title>Stage Timer Manager</title>
+	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" type="text/css">
+	<link rel="stylesheet" href="vendor/sweetalert/dist/sweetalert.css" type="text/css">
+
+	<link href='fonts/glyphicons-halflings-regular.ttf' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	
+	<!-- build:style bundle -->
+	<link rel="stylesheet" href="css/stage-timer-manager.css" type="text/css">
+	<!-- /build-->
+</head>
+<body ng-controller="StageTimerController">
+	<ng-view></ng-view>
+	<!--build:script bundle-->
+	<!-- VENDOR -->
+	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular-route/angular-route.js"></script>
+	<script src="vendor/angular-input-masks/angular-input-masks-dependencies.js"></script>
+	<script src="vendor/angular-input-masks/angular-input-masks.js"></script>
+	<script src="vendor/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+	<script src="vendor/angular-timer/dist/angular-timer.js"></script>
+
+	<script src="vendor/sweetalert/dist/sweetalert-dev.js"></script>
+	<script src="vendor/moment/moment.js"></script>
+	<script src="vendor/moment/locale/pt-br.js"></script>
+	
+	<script src="vendor/humanize-duration/humanize-duration.js"></script>
+	
+	<!-- PERSONAL -->
+	<script src="js/main.js"></script>
+	<!-- CONTROLLERS -->
+	<script src="js/controllers/StageTimerController.js"></script>
+	<!-- SERVICES -->
+	<script src="js/services/TimerManagerService.js"></script>
+	<script src="js/services/TimerService.js"></script>
+	<!-- DIRECTIVES -->
+	<script src="js/directives/ByCountdownDirective.js"></script>
+	<!--/build -->
+</body>
+</html>
