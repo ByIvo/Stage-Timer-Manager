@@ -6,17 +6,7 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 	{
 		name: 'Estágio 1',
 		stageTime: 3,
-		autoStart: false
-	},
-	{
-		name: 'Estágio 2',
-		stageTime: 5,
 		autoStart: true
-	},
-	{
-		name: 'Estágio 3',
-		stageTime: 200,
-		autoStart: false
 	}
 	];
 
@@ -27,13 +17,40 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 			$scope = scope;
 		},
 
+		okTitle: 'Parabéns!!!!',
+		okMessage: 'Você concluiu todas as fases com sucesso :)',
+
+		stages: function() {
+			return stages;
+		},
+
 		nextStage: function() {
 			var index = stages.indexOf(actualStage) + 1;
-			//
+			
 			if(stages.length > index) {
 				actualStage = stages[index];
+				this.restoreTimer();
+			}else {
+				actualStage = null;
+				swal(timerService.okTitle, timerService.okMessage, "success");
+				this.restoreTimer(true);
 			}
+		},
+
+		startStage: function(stage) {
+			actualStage = stage;
 			this.restoreTimer();
+		},
+
+		isCompleted: function(stage) {
+			var index = stages.indexOf(stage);
+			var actualIndex = stages.indexOf(actualStage);
+
+			return actualIndex > index;
+		},
+
+		isActual: function(stage) {
+			return stage === actualStage;
 		},
 
 		startTimer: function() {
@@ -46,10 +63,10 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 			running = false;
 		},
 
-		restoreTimer: function() {
-			$scope.$broadcast('timer-set-countdown-seconds', actualStage.stageTime);
+		restoreTimer: function(forceStop) {
+			$scope.$broadcast('timer-set-countdown-seconds', timerService.actualStage().stageTime);
 			
-			if(actualStage.autoStart) {
+			if(actualStage.autoStart && !forceStop) {
 				this.startTimer();
 			}else {
 				this.stopTimer();

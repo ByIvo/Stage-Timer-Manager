@@ -6,6 +6,9 @@ app.controller('StageTimerController', ['$scope', 'TimerService', function($scop
 	$scope.restoreTimer = TimerService.restoreTimer;
 	$scope.isRunning = TimerService.isRunning;
 	$scope.finished = TimerService.finished;
+	$scope.stages = TimerService.stages;
+	$scope.isCompleted = TimerService.isCompleted;
+	$scope.isActual = TimerService.isActual;
 
 	$scope.stageTime = function() {
 		return TimerService.actualStage().stageTime;
@@ -17,6 +20,11 @@ app.controller('StageTimerController', ['$scope', 'TimerService', function($scop
 
 	$scope.autoStart = function() {
 		return TimerService.actualStage().autoStart;
+	};
+
+	$scope.startStage = function(stage) {
+		console.log('olha ela');
+		 TimerService.startStage(stage);
 	};
 
 }]);
