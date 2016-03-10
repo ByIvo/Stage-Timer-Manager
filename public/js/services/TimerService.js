@@ -29,7 +29,7 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 
 		nextStage: function() {
 			var index = stages.indexOf(actualStage) + 1;
-
+			//
 			if(stages.length > index) {
 				actualStage = stages[index];
 			}
