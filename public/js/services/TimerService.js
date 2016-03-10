@@ -5,7 +5,22 @@ app.factory('TimerService', ['$timeout',function($timeout) {
 	var stages = [
 	{
 		name: 'Estágio 1',
+		stageTime: 2,
+		autoStart: true
+	},
+	{
+		name: 'Estágio 2',
+		stageTime: 2,
+		autoStart: true
+	},
+	{
+		name: 'Estágio 3',
 		stageTime: 3,
+		autoStart: true
+	},
+	{
+		name: 'Estágio 4',
+		stageTime: 4,
 		autoStart: true
 	}
 	];
