@@ -1,0 +1,14 @@
+<div class="stage-timer" ng-class="{completed: isCompleted(stage), 'on-going': isActual(stage)}">
+
+	<span class="template-name"> {{stage.name}} </span>
+	<span class="template-timer"> {{stage.stageTime}} </span>
+	<div class="templace-autostart-chk">
+		<input type="checkbox" ng-model="stage.autoStart" class="my-checkbox my-checkbox-normal" id="{{stage.name}}"/>
+		<label for="{{stage.name}}"></label>
+	</div>
+	<div class="action-buttons">
+		<span ng-click="startStage(stage)" ng-if="!isCompleted(stage) && !isActual(stage)" class="glyphicon glyphicon-play action-button"></span>
+
+		<span ng-click="startStage(stage)" ng-if="isCompleted(stage) && !isActual(stage)" class="glyphicon glyphicon-repeat action-button"></span>
+	</div>
+</div>

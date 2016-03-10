@@ -1,26 +1,101 @@
 .navbar {
-	height: 25vh;
+	height: 30vh;
 	background-color: transparent;
+
+  div.container-fluid {
+    text-align: center;
+  }
 }
 
 .stage-timer {
-	border: 1px solid #ccc;
-  width: 18vw;
-  height: 23vh;
+	border: 0;
+  width: 12vw;
+  height: 6vh;
+  z-index: 2;
   margin: 1vh 5px;
   background-color: @green-esmerald;
+  display: inline-block;
+  transition: all ease 0.5s;
+  transform: translate(0, 0);
+  opacity: 0.7;
 
+  .templace-autostart-chk {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: 0 5px;
+    display: none;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px @white;
+    opacity: 1;
+
+    .templace-autostart-chk,.action-button {
+      display: block;
+    }
+  }
+
+  .action-button {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    margin: 0 5px;
+    left: 0px;
+    top: 50%;
+    font-size: 3vh;
+    transform: translateY(-50%);
+    transition: all ease 0.5s;
+
+    &:hover {
+     font-size: 4vh;
+    }
+  }
 
   &.completed {
-  	background-color: @gray-concrete;
+    background-color: @gray-concrete;
+    transition: all ease 0.5s;
   }
 
   &.on-going {
-  	background-color: @blue-peter-river;
+    box-shadow: 0 0 0;
+    transition: all ease 0.5s;
+
+    background-color: @blue-belize-role;
+    width: 30vw;
+    height: 8vh;
+    opacity: 1;
+    display: block;
+    margin: auto;
+
+    .templace-autostart-chk {
+      display: none;
+    }
+
+    .template-timer, .template-name {
+      font-size: 2vmin;
+      margin: 5px 5px;
+    }
   }
 
-  &:hover button {
-  	display: block;
+  .template-name {
+    display: block;
+    font-weight: bold;
+    margin: 5px 10px;
+    text-align: center;
+    font-size: 1.5vmin;
   }
 
+  .template-timer {
+    .template-name;
+    position: absolute;
+    width: 100%;
+    margin: 5px 0;
+    bottom: 0;
+
+    &:after {
+      content: 'Segundos';
+    }
+  }
 }
