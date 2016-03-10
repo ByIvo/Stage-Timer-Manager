@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
 		less: {
 			build: {
-				src: 'public/less/<%= pkg.name%>.css',
+				src: 'public/less/<%= pkg.name%>.less',
 				dest:'public/css/<%= pkg.name%>.css'
 			}
 		},
